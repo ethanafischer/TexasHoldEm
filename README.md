@@ -6,7 +6,19 @@ This program is a Texas Hold'em poker simulator. It can simulate games with 1 to
 
 The program uses a standard 52-card deck to simulate games of Texas Hold'em. Each player is dealt two cards, known as "hole" cards, and then five community cards are dealt in the center of the table. Players can use any combination of their hole cards and the community cards to make the best possible five-card hand. 
 
-The program calculates the best possible hand for each player using a combination of brute-force and heuristic algorithms. It then compares each player's hand to determine the winner. After the simulation is complete, the program will output the frequency of the different hands winning, as well as the runtime of the program.
+The program calculates the best possible hand for each player using a combination of brute-force and heuristic algorithms. It then compares each player's hand to determine the winner. After the simulation is complete, the program will output the frequency of the different hands, as well as the runtime of the program.
+
+Frequency of hand rankings (9 players, 1000000 hands):
+* Royal Flush    : 0.00% (282/9000000)
+* Straight Flush : 0.03% (2518/9000000)
+* Four of a Kind : 0.17% (15479/9000000)
+* Full House     : 2.60% (233878/9000000)
+* Flush          : 3.03% (272706/9000000)
+* Straight       : 4.62% (415604/9000000)
+* Three of a Kind: 4.83% (434783/9000000)
+* Two Pair       : 23.48% (2113483/9000000)
+* One Pair       : 43.85% (3946063/9000000)
+* High Card      : 17.39% (1565204/9000000)
 
 ## Performance
 
