@@ -27,7 +27,7 @@ The runtime for simulating 100,000 hands on a table of 9 players averages around
 ## Limitations
 
 This program has a maximum limit of 22 players per hand. This is because a standard 52-card deck cannot accommodate more than 22 players. However, it's important to note that most Hold'em games typically only have between 6-9 players at a table. 
-Additionally, the program is limited to simulating games of Texas Hold'em and does not support other variations of poker.
+The program is limited to games of Texas Hold'em and does not support other variations of poker.
 Note that the program is not intended to be a fully-featured poker playing application, and as such, it does not currently support betting with chips.
 
 ## Credits
