@@ -87,6 +87,7 @@ public class Poker {
     }
 
     public static int[] startGame(){
+        System.out.println("Texas Hold'em");
         Scanner sc = new Scanner(System.in);
         int n, m;
 
@@ -103,7 +104,7 @@ public class Poker {
         System.out.print("How many rounds do you want to play? ");
         m = sc.nextInt();
 
-        System.out.println("Begin.\n");
+        System.out.println("Begin\n");
         return new int[]{n,m};
     }
 
@@ -537,12 +538,12 @@ public class Poker {
     }
 
     public static void print(Player[] players, Card[] community){
-        int count = 0;
-        for(Player p: players){
-            count++;
-            System.out.printf("Player %s has hole cards: %s\n", count, Arrays.toString(p.getHand().getCards()));
+        for (int i = 0; i < players.length; i++) {
+            String handCards = String.join(", ", Arrays.stream(players[i].getHand().getCards()).map(Card::toString).toArray(String[]::new));
+            System.out.printf("Player %d has hole cards: %s\n", i + 1, handCards);
         }
-        System.out.printf("Community cards: %s\n\n", Arrays.toString(community));
+        String communityCards = String.join(", ", Arrays.stream(community).map(Card::toString).toArray(String[]::new));
+        System.out.printf("Community cards: %s\n\n", communityCards);
     }
 
     public static String printHand(EvalTuple eval) {
@@ -562,7 +563,7 @@ public class Poker {
         Function<String, String> pluralize = (rank) -> rank.equals("Six") ? "Sixe" : rank;
 
         if (hr == HandRanking.ROYAL_FLUSH) {
-            return "Royal Flush";
+            return "Royal Flush\n";
         } else if (hr == HandRanking.STRAIGHT_FLUSH) {
             return String.format("Straight Flush, %s to %s\n", ranks[0], ranks[1]);
         } else if (hr == HandRanking.FOUR_OF_A_KIND) {
