@@ -20,7 +20,6 @@ public class Poker {
         int rounds = play[1];
 
         // some stress testing data. can calculate over 100,000 individual hands in 30 seconds!
-        // 9 players, 1,000,000 hands: 322.45 seconds
         // rough runtime: 0.3 ms per hand!
         Map<HandRanking, Integer> handFreq = new HashMap<>();
         for (HandRanking hr: HandRanking.values()) {
@@ -29,21 +28,25 @@ public class Poker {
 
         for(int i = 0; i < rounds; i++){
             System.out.printf("Hand %s:\n", i+1);
-            HandRanking winningHand = PlayHand(players);
-            handFreq.put(winningHand, handFreq.get(winningHand) + 1);
+            List<HandRanking> hands = PlayHand(players);
+            for (HandRanking hand: hands) {
+                handFreq.put(hand, handFreq.get(hand) + 1);
+            }
+            //HandRanking winningHand = PlayHand(players);
+            //handFreq.put(winningHand, handFreq.get(winningHand) + 1);
         }
 
         // Print the frequency of each HandRanking
-        System.out.printf("Frequency of winning hand rankings (%s players):\n", players);
+        System.out.printf("Frequency of hand rankings (%s players):\n", players);
         for (HandRanking hr : HandRanking.values()) {
             int wins = handFreq.get(hr);
-            double winRate = ((double) wins / rounds) * 100;
-            System.out.printf("%-15s: %.2f%% (%d/%d)\n", hr.getName(), winRate, wins, rounds);
+            double winRate = ((double) wins / (rounds * players)) * 100;
+            System.out.printf("%-15s: %.2f%% (%d/%d)\n", hr.getName(), winRate, wins, rounds * players);
         }
         return startTime;
     }
 
-    public static HandRanking PlayHand(int n) {
+    public static List<HandRanking> PlayHand(int n) {
         Deck deck = new Deck();
         List<EvalTuple> evals = new ArrayList<>();
         Player[] players = new Player[n];
@@ -75,7 +78,12 @@ public class Poker {
         }
         System.out.println("__________________________________________________");
         System.out.println();
-        return evals.get(winner[0]).getHr();
+        List<HandRanking> hrs = new ArrayList<>();
+        for (EvalTuple e: evals) {
+            hrs.add(e.getHr());
+        }
+        return hrs;
+        //return evals.get(winner[0]).getHr();
     }
 
     public static int[] startGame(){
