@@ -2,9 +2,7 @@
 
 ## Introduction
 
-This program is a Texas Hold'em poker simulator. It can simulate games with 1 to 22 players in a single hand. The program calculates the strongest hand for each player and determines the winner of the hand.
-
-The program uses a standard 52-card deck to simulate games of Texas Hold'em. Each player is dealt two cards, known as "hole" cards, and then five community cards are dealt in the center of the table. Players can use any combination of their hole cards and the community cards to make the best possible five-card hand. 
+This program simulates Texas Hold'em poker games for 1 to 22 players using a standard 52-card deck. Each player receives two "hole" cards, and five community cards are dealt in the center. Players can use any combination of their hole cards and the community cards to make the best five-card hand. The program determines the winner of the hand based on the strongest hand calculated for each player.
 
 The program calculates the best possible hand for each player using a combination of brute-force and heuristic algorithms. It then compares each player's hand to determine the winner. After the simulation is complete, the program will output the frequency of the different hands, as well as the runtime of the program.
 
