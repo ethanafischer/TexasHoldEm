@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This program is a Texas Hold'em poker simulator. It can simulate games with 2 to 22 players in a single hand. The program calculates the strongest hand for each player and determines the winner of the hand.
+This program is a Texas Hold'em poker simulator. It can simulate games with 1 to 22 players in a single hand. The program calculates the strongest hand for each player and determines the winner of the hand.
 
 ## How to Run the Program
 
